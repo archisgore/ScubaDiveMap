@@ -1,7 +1,5 @@
 <!--
-
-/*
-    This file is part of Exploration Maps (maps.archisgore.com).
+    This file is part of Exploration Maps (map.archisgore.com).
 
     Exploration Maps is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -12,19 +10,18 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Affero General Public License for more details.
-
-    You should have received a copy of the GNU Affero General Public License
-    along with Exploration Maps.  If not, see <http://www.gnu.org/licenses/>.
-*/
 -->
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Scuba Diving Exploration Map</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+    <meta name="description" content="Open, public-domain world map of scuba diving wrecks and dive sites. Filter, search, share by URL, and jump to driving directions. Mobile-friendly.">
+    <meta name="keywords" content="scuba diving, wreck, dive sites, dive map, exploration, public domain, open source">
+    <meta name="theme-color" content="#1d678c">
+    <link rel="canonical" href="https://map.archisgore.com/">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231d678c'%3E%3Cpath d='M12 2C7.59 2 4 5.59 4 10c0 5.25 6.86 11.46 7.15 11.72.49.43 1.21.43 1.7 0C13.14 21.46 20 15.25 20 10c0-4.41-3.59-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z'/%3E%3C/svg%3E">
     <link rel="stylesheet" type="text/css" href="assets/reset.css" />
     <link rel="stylesheet" type="text/css" href="assets/main.css" />
     <link rel="stylesheet" type="text/css" href="assets/tablefilter/style/tablefilter.css" />
@@ -32,15 +29,14 @@
 <body>
     <div id="map"></div>
     <div id="marker-container"></div>
-    <script src="assets/jquery-3.1.0.min.js"></script>
-    <script src="assets/map.js"></script>
-    <script src="assets/table.js"></script>
+    <script src="assets/jquery-3.1.0.min.js?v=20260609a"></script>
+    <script src="assets/map.js?v=20260609a"></script>
+    <script src="assets/table.js?v=20260609a"></script>
     <script src="assets/tablefilter/tablefilter.js"></script>
-    <script type="text/javascript" src="assets/geopoint.js"></script>
+    <script type="text/javascript" src="assets/geopoint.js?v=20260609a"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9JtvXxQOJAb5c0R0qrNGIRu-AC7DUZDw&callback=initMap"
             async defer></script>
-    <script src="assets/markerclusterer.min.js">
-    </script>
+    <script src="assets/markerclusterer.min.js"></script>
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

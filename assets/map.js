@@ -87,7 +87,7 @@ function initMap() {
                 return null;
             }
             var bound = Math.pow(2, zoom);
-            return 'http://gis.ngdc.noaa.gov/arcgis/rest/services/bag_hillshades/ImageServer/tile/' +
+            return 'https://gis.ngdc.noaa.gov/arcgis/rest/services/bag_hillshades/ImageServer/tile/' +
                 +zoom + '/' + normalizedCoord.y + '/' + normalizedCoord.x;
         },
         tileSize: new google.maps.Size(256, 256),
@@ -109,10 +109,9 @@ function initMap() {
             var sw = bounds.getSouthWest();
             lat2 = weirdOffset(sw.lat());
             lng2 = weirdOffset(sw.lng());
-            console.log(lng2 + " " + lat1 + " " + lng1 + " " + lat2);
-            //-122.213,47.527
-            //"http://gis.ngdc.noaa.gov/arcgis/rest/services/dem_hillshades/ImageServer/exportImage?f=image&interpolation=RSP_BilinearInterpolation&compressionQuality=90&bbox=" + lat1 + "%2C" + lng1 + "%2C" + lat2 + "%2C" + lng2 + "&imageSR=102100&bboxSR=102100&size=255%2C255"
-            console.log("http://gis.ngdc.noaa.gov/arcgis/rest/services/dem_hillshades/ImageServer/exportImage?f=image&interpolation=RSP_BilinearInterpolation&compressionQuality=90&bbox=" + lng2 + "%2C" + lat2 + "%2C" + lng1 + "%2C" + lat1 + "&imageSR=102100&bboxSR=102100&size=255%2C255")
+            // DEM overlay URL is computed but the NOAA endpoint here has moved/retired.
+            // Returning undefined makes Google Maps render no tile for this layer.
+            return undefined;
         },
         tileSize: new google.maps.Size(256, 256),
         maxZoom: 19,
@@ -192,7 +191,10 @@ var displayMarkers = function(infoWindow) {
                     }
                 });
             });
-        } catch (e) {}
+        } catch (e) {
+            // Filter table is optional; log so a real bug isn't hidden, but don't break the map.
+            if (typeof console !== "undefined") console.warn("Filter table init failed:", e);
+        }
 
         let googleMarkerObjects = [];
         let markerSelected = false;
